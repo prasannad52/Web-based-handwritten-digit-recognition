@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Handwritten Digit Recognition - Upload Image</title>
+</head>
+<body>
+  <h1>Handwritten Digit Recognition - Upload Image</h1>
+
+  <!-- Form for uploading the image -->
+  <form id="uploadForm" enctype="multipart/form-data">
+    <label for="imageInput">Choose an image to upload:</label>
+    <input type="file" id="imageInput" accept="image/*" required />
+    <button type="submit">Upload and Predict</button>
+  </form>
+
+  <h2>Predicted Digits:</h2>
+  <p id="output">Waiting for upload...</p>
+
+  <script>
+    // Handle image upload and send it to the Flask back-end for prediction
+    document.getElementById('uploadForm').addEventListener('submit', async function(event) {
+      event.preventDefault(); // Prevent form submission
+
+      const imageInput = document.getElementById('imageInput');
+      
+      if (!imageInput.files[0]) {
+        document.getElementById('output').innerText = 'Please select an image before submitting.';
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append('image', imageInput.files[0]);
+
+      try {
+        // Show a loading message while the prediction is being processed
+        document.getElementById('output').innerText = 'Processing...';
+
+        // Send image to Flask server for processing and prediction
+        const response = await fetch('/predict_multiple_digits', {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (!response.ok) {
+          throw new Error(`Server error: ${response.statusText}`);
+        }
+
+        const result = await response.json();
+
+        // Display the prediction result
+        if (result.digits) {
+          document.getElementById('output').innerText = `Predicted Digits: ${result.digits}`;
+        } else {
+          document.getElementById('output').innerText = 'No digits detected or error occurred.';
+        }
+      } catch (error) {
+        console.error('Error during prediction:', error);
+        document.getElementById('output').innerText = 'An error occurred during prediction. Please try again.';
+      }
+    });
+  </script>
+</body>
+</html>

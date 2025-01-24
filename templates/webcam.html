@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Webcam Digit Recognition</title>
+</head>
+<body>
+  <h1>Webcam-Based Digit Recognition</h1>
+  <video id="video" autoplay></video>
+  <button onclick="captureWebcam()">Start Prediction</button>
+  <div id="output"></div>
+
+  <script>
+    const video = document.getElementById('video');
+  
+    // Access the webcam
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then((stream) => { video.srcObject = stream; })
+      .catch((err) => { console.error("Error accessing webcam:", err); });
+  
+    async function captureWebcam() {
+      // Create an offscreen canvas to capture the video frame
+      const canvas = document.createElement('canvas');
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+  
+      // Convert canvas image to a Blob (binary data)
+      const blob = await new Promise((resolve) => canvas.toBlob(resolve, 'image/png'));
+  
+      // Send the binary image data to the backend
+      const response = await fetch('/predict_webcam', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/octet-stream' }, // Indicate binary content
+        body: blob, // Send binary data
+      });
+  
+      const result = await response.json();
+  
+      // Display the prediction result
+      document.getElementById('output').innerText = `Predicted Digits: ${result.digits}`;
+    }
+  </script>
+  
+</body>
+</html>

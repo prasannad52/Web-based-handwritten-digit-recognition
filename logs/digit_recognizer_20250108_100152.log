@@ -1,0 +1,12 @@
+2025-01-08 10:01:54,242 - WARNING - Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.
+2025-01-08 10:01:54,259 - INFO - Model loaded successfully
+2025-01-08 10:02:17,267 - INFO - Prediction made: digit=5, confidence=99.38%
+2025-01-08 10:02:30,207 - INFO - Canvas cleared
+2025-01-08 10:02:34,523 - INFO - Prediction made: digit=4, confidence=78.85%
+2025-01-08 10:02:53,749 - INFO - Canvas cleared
+2025-01-08 10:03:00,102 - INFO - Prediction made: digit=9, confidence=81.04%
+2025-01-08 10:03:08,977 - INFO - Canvas cleared
+2025-01-08 10:03:14,959 - INFO - Prediction made: digit=4, confidence=96.98%
+2025-01-08 10:03:17,846 - INFO - Canvas cleared
+2025-01-08 10:03:24,598 - INFO - Prediction made: digit=1, confidence=87.65%
+2025-01-08 10:03:27,809 - INFO - Canvas cleared
