@@ -1,9 +1,132 @@
-{% extends "base.html" %}
-{% block content %}
-<form method="post">
-    <input type="text" name="username" placeholder="Username" required>
-    <input type="password" name="password" placeholder="Password" required>
-    <button type="submit">Login</button>
-</form>
-<p>Don't have an account? <a href="register.html">Register here</a></p>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Sign-Up - Handwritten Digit Recognition</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://i.pinimg.com/originals/c5/23/a1/c523a1f7ee3d1b459cca6d4a9e26f9b9.gif'); /* Background image */
+            background-size: cover; 
+            background-position: center;
+            background-repeat: no-repeat; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height:100vh;
+            margin: 0;
+            color: #c99613;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.7); /* Slightly transparent background */
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            width: 350px;
+            text-align: center;
+        }
+        h1 {
+            color: #f9d342;
+            margin-bottom: 1rem;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input {
+            margin: 0.5rem 0;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+        }
+        input:focus {
+            box-shadow: 0 0 8px #f9d342;
+        }
+        button {
+            margin-top: 1rem;
+            padding: 0.8rem;
+            background-color: #f9d342;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #e8c333;
+        }
+        .toggle {
+            margin-top: 1rem;
+            color: #f9d342;
+            cursor: pointer;
+        }
+        .toggle:hover {
+            text-decoration: underline;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .container {
+            animation: fadeIn 0.5s ease-in;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+        <h1>Welcome!</h1>
+        <!-- Login Form -->
+        <form id="loginForm" action="/login" method="POST">
+            <input type="text" name="username" placeholder="username" required />
+            <input type="password" name="password" placeholder="password" required />
+            <button type="submit">Login</button>
+        </form>
+        <p class="toggle"><a href="/register_signin" style="color: #f9d342; text-decoration: none;">Don't have an account? Sign Up</a></p>
+    </div>
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const signupForm = document.getElementById('signupForm');
+        const toggleForm = document.getElementById('toggleForm');
+
+        // Toggle between login and sign-up forms
+        toggleForm.addEventListener('click', () => {
+            if (loginForm.style.display === 'none') {
+                loginForm.style.display = 'flex';
+                signupForm.style.display = 'none';
+                toggleForm.textContent = "Don't have an account? Sign Up";
+            } else {
+                loginForm.style.display = 'none';
+                signupForm.style.display = 'flex';
+                toggleForm.textContent = "Already have an account? Login";
+            }
+        });
+         // Disable going back to the previous page after logout
+        window.onload = function() {
+            // Push a new state into history (so there is no previous page)
+            window.history.pushState(null, document.title, location.href);
+
+            // This ensures that the user can't go back to the previous page
+            window.onpopstate = function () {
+                window.history.pushState(null, document.title, location.href);
+            };
+        }
+    </script>
+     <!-- Display flash messages as popups -->
+     {% with messages = get_flashed_messages(with_categories=true) %}
+     {% if messages %}
+         <script>
+             // Loop through each flash message
+             {% for category,message in messages %}
+                 // Display an alert for each message
+                 alert("{{ message }}");
+             {% endfor %}
+         </script>
+     {% endif %}
+ {% endwith %}
+
+  
+</body>
+</html>

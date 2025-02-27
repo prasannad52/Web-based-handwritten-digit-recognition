@@ -1,24 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Handwritten Digit Recognition - Upload Image</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Image</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: transparent;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Video background */
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .content {
+            text-align: center;
+            z-index: 1;
+            padding: 2vh;
+            width: 80%;
+            display: flex;
+            color: #f9d342;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 3vw;
+            margin-bottom: 4vh;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        h2 {
+            font-size: 2vw;
+            color: #f9d342;
+            margin-top: 4vh;
+        }
+
+        p {
+            font-size: 1.5vw;
+            color: #d6d5c479;
+            margin-top: 2vh;
+        }
+
+        form {
+            background-color: rgb(190, 162, 24);
+            padding: 30px;
+            border-radius: 1vw;
+            box-shadow: 0 8px 15px rgba(22, 85, 89, 0.588);
+            width: 40%;
+            margin-top: 3vh;
+            margin-bottom: 2vh;
+        }
+
+        label {
+            font-size: 1.5vw;
+            color: #ffffff;
+            display: block;
+            margin-bottom: 2vh;
+        }
+
+        input[type="file"] {
+            width: 100%;
+            padding: 2vw;
+            font-size: 1.2vw;
+            border: 2px solid #000000;
+            border-radius: 1vw;
+            background-color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2vh;
+            color: #333;
+        }
+
+        button {
+            padding: 1.2vw 2vw;
+            font-size: 1.5vw;
+            color: #000000;
+            background-color: #ffcc00;
+            border: 1px solid #000000;
+            border-radius: 0.5vw;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            margin-top: 1.5vh;
+        }
+
+        button:hover {
+            background-color: #ffffff;
+            border:#f9d342;
+            color: #000;
+            transform: scale(1.05);
+        }
+
+        .navigate-link {
+            display: inline-block;
+            margin-top: 3vh;
+            padding: 1.2vw 2vw;
+            font-size: 1.5vw;
+            color: #ffffff;
+            background-color: transparent;
+            border: 1px solid #f9d342;
+            border-radius: 0.5vw;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .navigate-link:hover {
+            background-color: #f9d342;
+            color: #000;
+            transform: scale(1.05);
+        }
+
+        /* Navigation and logo positioning */
+        .top-left-container {
+            position: absolute;
+            top: 10px;
+            left: 40px;
+            display: flex;
+            align-items: center;
+        }
+
+        .top-right-container {
+            position: absolute;
+            top: 0px;
+            right: 30px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            width: 100px;
+            height: auto;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            h1 {
+                font-size: 4vw;
+            }
+
+            h2 {
+                font-size: 3vw;
+            }
+
+            p {
+                font-size: 2vw;
+            }
+
+            form {
+                width: 60%;
+            }
+
+            label {
+                font-size: 2vw;
+            }
+
+            input[type="file"],
+            button {
+                font-size: 1.8vw;
+            }
+
+            .navigate-link {
+                font-size: 1.8vw;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 5vw;
+            }
+
+            h2 {
+                font-size: 4vw;
+            }
+
+            p {
+                font-size: 3vw;
+            }
+
+            form {
+                width: 70%;
+            }
+
+            label {
+                font-size: 2.5vw;
+            }
+
+            input[type="file"],
+            button,
+            .navigate-link {
+                font-size: 2.2vw;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 7vw;
+            }
+
+            h2 {
+                font-size: 5vw;
+            }
+
+            p {
+                font-size: 4vw;
+            }
+
+            form {
+                width: 90%;
+            }
+
+            label {
+                font-size: 3.5vw;
+            }
+
+            input[type="file"],
+            button,
+            .navigate-link {
+                font-size: 3vw;
+            }
+        }
+    </style>
 </head>
 <body>
-  <h1>Handwritten Digit Recognition - Upload Image</h1>
+    <video autoplay muted loop>
+        <source src="/static/video3.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
 
-  <!-- Form for uploading the image -->
-  <form id="uploadForm" enctype="multipart/form-data">
-    <label for="imageInput">Choose an image to upload:</label>
-    <input type="file" id="imageInput" accept="image/*" required />
-    <button type="submit">Upload and Predict</button>
-  </form>
+    <!-- Back button in the top-left corner -->
+    <div class="top-left-container">
+        <a href="/mainpage" class="navigate-link">Back</a>
+    </div>
 
-  <h2>Predicted Digits:</h2>
-  <p id="output">Waiting for upload...</p>
+    <!-- Logo in the top-right corner -->
+    <div class="top-right-container">
+        <img src="/static/final logo.jpg" alt="Logo" class="logo">
+    </div>
 
-  <script>
+    <div class="content">
+        <h1>Upload Image</h1>
+
+        <!-- Form for uploading the image -->
+        <form id="uploadForm" enctype="multipart/form-data">
+            <label for="imageInput">Choose an image to upload:</label>
+            <input type="file" id="imageInput" accept="image/*" required />
+            <button type="submit">Upload and Predict</button>
+        </form>
+
+        <h2>Predicted Digits:</h2>
+        <p id="output">Waiting for upload...</p>
+    </div>
+
+    <script>
     // Handle image upload and send it to the Flask back-end for prediction
     document.getElementById('uploadForm').addEventListener('submit', async function(event) {
       event.preventDefault(); // Prevent form submission
@@ -60,6 +321,7 @@
         document.getElementById('output').innerText = 'An error occurred during prediction. Please try again.';
       }
     });
-  </script>
+  
+    </script>
 </body>
 </html>

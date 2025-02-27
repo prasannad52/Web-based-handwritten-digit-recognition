@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applications of Handwritten Digit Recognition</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            min-height: 100vh;
+            display: block;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Video background */
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .content {
+            text-align: center;
+            z-index: 1;
+            padding: 2vh;
+            width: 80%;
+            margin: auto;
+            margin-top: 5vh;
+        }
+
+        h1 {
+            font-size: 3vw;
+            margin: 4vh 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        h2 {
+            font-size: 2vw;
+            margin-bottom: 3vh;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        p {
+            font-size: 1.5vw;
+            color: #ffffff;
+            margin-bottom: 4vh;
+        }
+
+        .applications-list {
+            text-align: left;
+            font-size: 1.3vw;
+            color: #ffffff;
+            line-height: 1.8;
+            margin-bottom: 3vh;
+        }
+
+        .applications-list li {
+            margin-bottom: 1vh;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 5vh;
+            position: relative;
+            bottom: -2vh; /* Adjusts the button slightly away from the bottom */
+        }
+
+        .btn {
+            background-color: transparent;
+            color: #ffffff;
+            border: 1px solid yellow; /* Yellow border */
+            border-radius: 5px;
+            font-size: 1.5vw;
+            padding: 1vh 2vw;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s;
+            text-decoration: none; /* Removes underline from the link */
+            position: relative; /* Allows custom positioning */
+            bottom: 6vh; /Raises the button slightly above the bottom/
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: whitesmoke; /black text on hover/
+            transform: scale(1.1);
+        }
+
+        .btn:active {
+            transform: scale(1);
+        }
+
+        /* Logo styling */
+        .logo {
+            position: fixed;
+            top: 1vh;
+            left: 1vw;
+            z-index: 2;
+            width: 7vw;
+            height: auto;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 6vw;
+            }
+
+            h2 {
+                font-size: 4vw;
+            }
+
+            p, .applications-list {
+                font-size: 2.5vw;
+            }
+
+            .btn {
+                font-size: 2.5vw;
+                padding: 1.5vh 2vw;
+            }
+
+            .logo {
+                width: 12vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <video autoplay muted loop>
+        <source src="/static/video3.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Logo -->
+    <img src="/static/final logo.jpg" alt="Logo" class="logo">
+
+    <div class="content">
+        <h2>Purpose of Handwritten Digit Recognition</h2>
+        <ul class="applications-list">
+            <br>
+            <h4> At its core, HDR aims to bridge the gap between human handwriting and machine understanding. It empowers computers to interpret and process handwritten digits, unlocking a myriad of applications</h4>
+            <br>
+            <li><strong>Automation </strong>
+                <ul>
+                    <li>
+                        Automating data entry tasks, such as reading zip codes on envelopes, processing bank checks, and digitizing handwritten forms, significantly improves efficiency and reduces manual labor.</li>
+                    </li>
+                    <li><strong> For eg.: Postal Mail Sorting: </strong>HDR is a cornerstone of automated mail sorting systems. Optical Character Recognition (OCR) technology, powered by HDR algorithms, reads zip codes and addresses on envelopes. This enables high-speed sorting machines to efficiently route mail to the correct destinations, significantly improving delivery times and reducing the need for manual sorting. </li>
+                    <li><strong>Bank Cheque Processing: </strong>Banks heavily rely on HDR to process checks. The system accurately reads the handwritten amount on the check, verifies signatures, and extracts other relevant information, such as account numbers and routing codes. This automation streamlines check processing, reduces manual errors, and speeds up fund transfers.
+                    </li>
+                </ul>
+            </li>
+            <br>
+            <li><strong>2. Accessibility</strong> 
+                <ul>
+                    <li>HDR plays a crucial role in making technology more accessible to individuals with visual impairments. By converting handwritten text into digital format, it enables them to interact with computers and digital devices more easily.</li>
+                    <li><strong>Text-to-Speech Conversion: </strong>HDR enables visually impaired individuals to interact with digital devices more effectively. By converting handwritten notes or documents into digital text, HDR allows assistive technologies like screen readers to read the information aloud, providing accessibility and independence.</li>
+                    <li><strong>Braille Translation: </strong>HDR can be used to translate handwritten text into Braille, enabling visually impaired individuals to read and write more easily.</li>
+                </ul>
+            </li>
+            <br>
+            <li><strong>3. Historical Preservation</strong> 
+                <ul>
+                    <li>Digitizing historical documents like handwritten manuscripts, letters, and diaries helps preserve them for future generations and enables easier access and analysis.</li>
+                    <li><strong>Digitization of Archives: </strong>HDR is instrumental in digitizing historical documents such as letters, diaries, manuscripts, and ancient texts. This process preserves valuable historical information, making it accessible for research, education, and future generations.</li>
+                    <li><strong>Text Analysis: </strong>Digitized handwritten documents can be analyzed using natural language processing techniques to extract valuable insights into historical events, social trends, and cultural evolution.</li>
+                </ul>
+            </li>
+            <br>
+            <li><strong>4. Scientific Research</strong> 
+                <ul>
+                    <li>In fields like paleography and historical linguistics, HDR aids in analyzing and deciphering ancient scripts and handwritten texts..</li>
+                    <li><strong>Paleography and Linguistics: </strong> HDR aids researchers in analyzing ancient scripts and deciphering historical handwriting styles. This information can provide valuable insights into the evolution of languages, writing systems, and historical periods.</li>
+                    <li><strong>Forensic Analysis: </strong> HDR can be used to analyze handwriting samples for forensic purposes, such as identifying the author of a document or detecting forgeries.</li>
+                    <li><strong>Improving Accuracy and Robustness: </strong>Ongoing research focuses on improving the accuracy and robustness of HDR systems, especially in handling variations in handwriting styles, noise, and image quality.</li>
+                    <li><strong>Integration with Other Technologies: </strong> HDR is being integrated with other technologies like natural language processing and speech recognition to create more comprehensive and intelligent systems.</li>
+                </ul>
+            </li>
+            <br>
+            <br>
+            <h2>Evolution Of the Concept</h2>
+            <br>
+            <ul>
+                <li>
+                    The journey of HDR is closely intertwined with the evolution of <strong>Artificial Intelligence (AI)</strong> and pattern recognition. Here are some key milestones</li>
+                </li>
+            </ul>
+            <br>
+            <li><strong>Early Efforts</strong> 
+                <ul>
+                    <li>Early attempts involved simple rule-based systems and template matching, where pre-defined templates were compared to the input image. These methods, however, were limited in their accuracy and robustness.</li>
+                </ul>
+            </li>
+            <br>
+            <li><strong>Neural Networks</strong> 
+                <ul>
+                    <li>The advent of neural networks in the mid-20th century brought about a significant breakthrough. Researchers began exploring the use of artificial neurons to learn and recognize patterns in handwritten digits.</li>
+                </ul>
+            <br>
+            <li><strong>The MNIST Dataset</strong>
+                <ul>
+                    <li>The introduction of the MNIST dataset, a large collection of handwritten digits, provided a standardized benchmark for evaluating HDR algorithms.</li>
+                </ul>
+            <br>
+            <li><strong>Convolutional Neural Networks (CNNs)</strong> 
+                <ul>
+                    <li>The development of CNNs in the 1990s revolutionized HDR. CNNs, with their ability to automatically learn hierarchical features from images, achieved remarkable accuracy in recognizing handwritten digits.</li>
+                </ul>
+            </ul>
+            <br>
+    </div>
+
+    <div class="btn-container">
+        <a href="/index2" class="btn">Go Back</a>
+    </div>
+</body>
+</html>

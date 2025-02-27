@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second Page - Handwritten Digit Recognition</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Video background */
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .content {
+            text-align: center;
+            z-index: 1;
+            padding: 2vh;
+            width: 80%;
+        }
+
+        h1 {
+            font-size: 3vw;
+            margin: 4vh 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        p {
+            font-size: 1.5vw;
+            color: #ffffff;
+            margin-bottom: 4vh;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1.5vh 3vw;
+            font-size: 1.7vw;
+            color: #fff;
+            background-color: transparent;
+            border: 1px solid #f9d342;
+            border-radius: 0.5vw;
+            cursor: pointer;
+            font-weight: thin;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: #f9d342;
+            transform: scale(1.05);
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: flex-end; /* Align buttons to the right */
+            gap: 2vw;
+            position: absolute;
+            top: 4vh; /* Position buttons at the top */
+            right: 2vw; /* Right corner of the screen */
+            z-index: 2;
+        }
+        /* Logo styling */
+        .logo {
+            position: absolute;
+            top: 1vh;
+            left: 1vw;
+            z-index: 2;
+            width: 7vw;
+            height: auto;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            h1 {
+                font-size: 2vw;
+            }
+
+            p {
+                font-size: 1.8vw;
+            }
+
+            .btn {
+                font-size: 1.0vw;
+                padding: 1vh 2vw;
+            }
+
+            .logo {
+                width: 10vw;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 6vw;
+            }
+
+            p {
+                font-size: 3vw;
+            }
+
+            .btn {
+                font-size: 2.5vw;
+                padding: 1.5vh 2vw;
+            }
+
+            .logo {
+                width: 12vw;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 7vw;
+            }
+
+            p {
+                font-size: 4vw;
+            }
+
+            .btn {
+                font-size: 3.5vw;
+                width: 80%;
+                padding: 1.5vh 2vw;
+            }
+
+            .btn-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 1vh;
+                position: absolute;
+                top: 2vh;
+                right: 2vw;
+            }
+
+            .logo {
+                width: 15vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <video autoplay muted loop>
+        <source src="/static/video3.mp4" type="video/mp4">
+        <!-- Add fallback content if the video doesn't load -->
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Logo -->
+    <img src="/static/final logo.jpg" alt="Logo" class="logo">
+
+    <div id="purpose"  class="content">
+        <h1>Web Based Handwritten Digit Recognition</h1>
+        <p>Are you ready to recognize the handwritten digits?</p>
+        <!-- Start Button -->
+        <a href="{{ url_for('mainpage') }}"><button class="btn">Start</button></a>
+    </div>
+    
+    <div class="btn-container">
+        <a href="/purpose"><button class="btn">Purpose</button></a>
+        <a href="/application"><button class="btn">Applications</button></a>
+        <a href="/aboutus"><button class="btn">About Us</button></a>
+        <a href="/logout"><button class="btn">logout</button></a>
+    </div>
+    <script>
+        // Refresh the page when it loads
+        window.onload = function() {
+            setTimeout(function() {
+                window.location.reload();  // Reload the current page
+            }, 2000);  // Adjust the time (in milliseconds) to how long after load you want the page to refresh
+        };
+    </script>
+</body>
+</html>

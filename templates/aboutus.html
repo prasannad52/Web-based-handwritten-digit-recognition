@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            font-family: Arial, sans-serif;
+            background-color: transparent;
+            margin: 0;
+            min-height: 100vh;
+            overflow: auto; /* Allow scrolling */
+        }
+
+        /* Video background */
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        header {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            z-index: 2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 10px;
+        }
+
+        .back-button {
+            font-size: 1.5rem;
+            color: #ffffff;
+            background-color: transparent;
+            padding: 5px 15px;
+            text-decoration: none;
+            border: 1px solid #ffcc00;
+            border-radius: 5px;
+            margin-left: 35px;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #ffcc00;
+            color: #000000;
+            transform: scale(1.1);
+        }
+
+        .logo {
+            width: 7vw;
+            height: auto;
+            margin-left: 50px;
+        }
+
+        h1 {
+            font-size: 3vw;
+            margin-top: 9vh;
+            margin-bottom: 10vh;
+            font-weight: bold;
+            color: #ffcc00;
+            text-align: center;
+        }
+
+        .about-container {
+            margin: 5vh auto;
+            margin-top: 10px;
+            margin-right: 50px;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .profile {
+            display: inline-block;
+            width: 400px;
+            margin: 20px;
+            text-align: center;
+        }
+
+        .profile img {
+            width: 250px;
+            height: 300px;
+            border-radius: 50%;
+            border: 3px solid #000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+            margin-top: 1px;
+        }
+
+        .profile img:hover {
+            transform: scale(1.1);
+        }
+
+        .profile h2 {
+            font-size: 1.5vw;
+            margin-top: 15px;
+            color: #ffffff;
+        }
+
+        .profile p {
+            font-size: 1.2vw;
+            color: #ffffff;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 5vw;
+            }
+
+            .profile {
+                width: 80%;
+                margin: 20px auto;
+            }
+
+            .profile img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .profile h2 {
+                font-size: 4vw;
+            }
+
+            .profile p {
+                font-size: 3vw;
+            }
+
+            .logo {
+                width: 12vw;
+            }
+
+            .back-button {
+                font-size: 2vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Video background -->
+    <video autoplay muted loop>
+        <source src="/static/video3.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Header -->
+    <header>
+        <a href="/index2" class="back-button">Back</a>
+        <img src="/static/final logo.jpg" alt="Logo" class="logo">
+    </header>
+
+    <!-- Main Content -->
+    <h1>About Us</h1>
+    <div class="about-container">
+        <div class="profile">
+            <img src="/static/chetan.jpg" alt="Person 1">
+            <h2>Chetan V K</h2>
+            <p>3rd year Undergrad at Dr.AIT</p>
+            <br>
+            <p>Domain: Data Scince, Frontend development, and Foundation of Machine Learning</p>
+            <br>
+            <P>"I BELIEVE IN FAILS"</P>
+            <br>
+            
+        </div>
+        <div class="profile">
+            <img src="/static/prasanna.jpg" alt="Person 2">
+            <h2>Prasanna S D</h2>
+            <p>3rd Year CSE undergrad at Dr.AIT.</p>
+            <br>
+            <p>Domain: Data Science, Machine Learning, and Deep Learning</p>
+            <br>
+            <p>"SUCCES REQUIRES NO EXPLANATION, FAILURE PERMITS NO ALIBIS"</p>
+        </div>
+    </div>
+</body>
+</html

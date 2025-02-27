@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applications of Handwritten Digit Recognition</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            min-height: 100vh;
+            display: block;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Video background */
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .content {
+            text-align: center;
+            z-index: 1;
+            padding: 2vh;
+            width: 80%;
+            margin: auto;
+            margin-top: 5vh;
+        }
+
+        h1 {
+            font-size: 3vw;
+            margin: 4vh 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        h2 {
+            font-size: 2vw;
+            margin-bottom: 3vh;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        p {
+            font-size: 1.5vw;
+            color: #ffffff;
+            margin-bottom: 4vh;
+        }
+
+        .applications-list {
+            text-align: left;
+            font-size: 1.3vw;
+            color: #ffffff;
+            line-height: 1.8;
+            margin-bottom: 3vh;
+        }
+
+        .applications-list li {
+            margin-bottom: 1vh;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 5vh;
+            position: relative;
+            bottom: -2vh; /* Adjusts the button slightly away from the bottom */
+        }
+
+        .btn {
+            background-color: transparent;
+            color: #ffffff;
+            border: 1px solid yellow; /* Yellow border */
+            border-radius: 5px;
+            font-size: 1.5vw;
+            padding: 1vh 2vw;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s;
+            text-decoration: none; /* Removes underline from the link */
+            position: relative; /* Allows custom positioning */
+            bottom: 6vh; /Raises the button slightly above the bottom/
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: whitesmoke; /black text on hover/
+            transform: scale(1.1);
+        }
+
+        .btn:active {
+            transform: scale(1);
+        }
+
+        /* Logo styling */
+        .logo {
+            position: fixed;
+            top: 1vh;
+            left: 1vw;
+            z-index: 2;
+            width: 7vw;
+            height: auto;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 6vw;
+            }
+
+            h2 {
+                font-size: 4vw;
+            }
+
+            p, .applications-list {
+                font-size: 2.5vw;
+            }
+
+            .btn {
+                font-size: 2.5vw;
+                padding: 1.5vh 2vw;
+            }
+
+            .logo {
+                width: 12vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <video autoplay muted loop>
+        <source src="/static/video3.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Logo -->
+    <img src="/static/final logo.jpg" alt="Logo" class="logo">
+
+    <div class="content">
+        <h2>Applications of Handwritten Digit Recognition</h2>
+        <p>Here are some key applications:</p>
+        <ul class="applications-list">
+            <li><strong>1. Postal Mail Sorting:</strong> 
+                <ul>
+                    <li>
+                        Automates the sorting of mail by recognizing zip codes and addresses written on envelopes.</li>
+                    </li>
+                </ul>
+            <br>
+            <li><strong>2. Bank Cheque Processing:</strong> 
+                <ul>
+                    <li>Accurately reads the amount written on checks for automated processing and deposit.</li>
+                    <li>Helps in detecting fraudulent checks by comparing handwritten amounts with pre-printed information.</li>
+                </ul>
+            </li>
+            <br>
+            <li><strong>3. Form Data Entry:</strong> 
+                <ul>
+                    <li>Automates the digitization of data from handwritten forms such as surveys, applications, and medical records.</li>
+                    <li>Reduces manual data entry errors and improves data accuracy.</li>
+                </ul>
+            </li>
+            <br>
+            <li><strong>4. Historical Document Analysis:</strong> 
+                <ul>
+                    <li>Enables the digitization of historical handwritten documents like old letters, journals, and manuscripts.</li>
+                    <li>Helps preserve historical records by converting them into digital formats.</li>
+                </ul>
+            </li>
+            <br>
+            <li><strong>5. Mobile Device Input:</strong> 
+            <ul>
+                <li>
+                    Enables users to write directly on touchscreens for inputting numbers, text, and signatures on mobile devices.</li>
+                </li>
+            </ul>
+            <br>
+            <li><strong>6. Fraud Detection:</strong> 
+                <ul>
+                    <li>Analyzes signatures and handwriting styles to detect forgery in financial documents, legal documents, and other critical records.</li>
+                </ul>
+            </li>
+            <br>
+            <li><strong>7. Accessibility:</strong> 
+                <ul>
+                    <li>Assists visually impaired individuals by converting handwritten notes or documents into digital text, making them more accessible.</li>
+                </ul>
+            <br>
+            <li><strong>8. Smart Home Applications:</strong>
+                <ul>
+                    <li> Allows for the recognition of handwritten commands or numbers on smart home control panels.</li>
+                </ul>
+            <br>
+            <li><strong>9. Industrial Automation:</strong> 
+                <ul>
+                    <li>Used in quality control processes to inspect handwritten labels or markings on products.</li>
+                </ul>
+        </ul>
+    </div>
+
+    <div class="btn-container">
+        <a href="/index2" class="btn">Go Back</a>
+    </div>
+</body>
+</html>
